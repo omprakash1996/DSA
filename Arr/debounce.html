@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Debounced Search Example</title>
+</head>
+<body>
+  <h3>Type something to search:</h3>
+  <input type="text" id="searchInput" placeholder="Start typing..." />
+
+  <script>
+    function debounce(fn, delay) {
+      let timer;
+      return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), delay);
+      };
+    }
+
+    const searchAPI = query => console.log("Searching:", query);
+
+    const debouncedSearch = debounce(searchAPI,600);
+
+    document.getElementById("searchInput").addEventListener("input", e => {
+      debouncedSearch(e.target.value);
+    });
+  </script>
+</body>
+</html>
