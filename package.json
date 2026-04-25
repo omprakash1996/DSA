@@ -1,0 +1,38 @@
+{
+  "name": "dsa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "eslint . --ext .js --ignore-pattern node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omprakash1996/DSA.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omprakash1996/DSA/issues"
+  },
+  "homepage": "https://github.com/omprakash1996/DSA#readme",
+  "devDependencies": {
+    "eslint": "^10.2.0",
+    "jest": "^30.3.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/*.test.js"
+    ],
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "Array/**/*.js",
+      "String/**/*.js",
+      "object/**/*.js",
+      "!**/*.test.js"
+    ]
+  }
+}
