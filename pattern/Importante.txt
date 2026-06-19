@@ -1,0 +1,157 @@
+Nested for loops are commonly used when you need to compare, combine, or traverse data against other data.
+
+1.--> j = 0
+
+Use when every element must compare with every element.
+
+Example: Matrix Traversal
+let matrix = [
+  [1, 2],
+  [3, 4]
+];
+
+for (let i = 0; i < matrix.length; i++) {
+  for (let j = 0; j < matrix[i].length; j++) {
+    console.log(matrix[i][j]);
+  }
+}
+
+Here:
+
+i → row
+j → column
+
+----------------------------------------------------------------------
+2. j = i + 1
+
+Use when:
+
+comparing pairs
+avoiding duplicate comparisons
+avoiding self comparison
+Example: Find duplicates
+let arr = [1, 2, 2, 3];
+
+for (let i = 0; i < arr.length; i++) {
+  for (let j = i + 1; j < arr.length; j++) {
+    if (arr[i] === arr[j]) {
+      console.log(arr[i]);
+    }
+  }
+}
+
+Checks:
+
+(1,2)
+(1,2)
+(1,3)
+(2,2)
+(2,3)
+
+Not:
+
+(2,2 self)
+(2,1 repeated)
+
+----------------------------------------------------------------------------
+3. j = i
+
+Use when current index also matters.
+
+Example: Pattern printing
+for (let i = 1; i <= 5; i++) {
+  let str = "";
+
+  for (let j = i; j <= 5; j++) {
+    str += "*";
+  }
+
+  console.log(str);
+}
+
+Output:
+
+*****
+****
+***
+**
+*
+--------------------------------------------------------------
+4. j = arr.length - 1
+
+Used in reverse traversal.
+
+Example: Reverse pair checking
+for (let i = 0; i < arr.length; i++) {
+  for (let j = arr.length - 1; j >= 0; j--) {
+    console.log(arr[i], arr[j]);
+  }
+}
+---------------------------------------------------
+
+Most Common Nested Loop Use Cases
+Use Case	Loop Style
+Matrix traversal	j = 0
+Pair comparison	j = i + 1
+Pattern printing	depends
+Sorting algorithms	usually j = i + 1 or 0
+Subarrays	j = i
+String comparison	j = 0 or i + 1
+------------------------------------------------------------
+Important Interview Patterns
+Pair Problems
+for (let i = 0; i < n; i++) {
+  for (let j = i + 1; j < n; j++) {
+
+  }
+}
+
+Used in:
+
+Two Sum (brute force)
+Duplicate finding
+Pair counting
+Closest pair
+--------------------------------------------------------------------
+Subarray Problems
+for (let i = 0; i < n; i++) {
+  for (let j = i; j < n; j++) {
+
+  }
+}
+
+Used in:
+
+Generate all subarrays
+Maximum subarray brute force
+
+Example:
+
+let arr = [1, 2, 3];
+
+for (let i = 0; i < arr.length; i++) {
+  let temp = "";
+
+  for (let j = i; j < arr.length; j++) {
+    temp += arr[j] + " ";
+    console.log(temp);
+  }
+}
+
+Output:
+
+1
+1 2
+1 2 3
+2
+2 3
+3
+Rule of Thumb
+Situation	Start j From
+Compare everything	0
+Compare pairs once	i + 1
+Include current index	i
+Reverse traversal	length - 1
+
+These patterns appear frequently in DSA and interviews.
+-----------------------------------------------------------------------

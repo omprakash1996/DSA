@@ -28,3 +28,34 @@ console.log(isValid("()")); // true
 console.log(isValid("({[]})")); // true
 console.log(isValid("(]")); // false
 console.log(isValid("((("));
+// --------------------------------------------------------------------------------
+
+function isValidParentheses(s) {
+  const stack = [];
+  const map = {
+    ')': '(',
+    ']': '[',
+    '}': '{'
+  };
+
+  for (let char of s) {
+    if (char === '(' || char === '[' || char === '{') {
+      stack.push(char);
+    } else {
+      if (stack.length === 0 || stack[stack.length - 1] !== map[char]) {
+        return false;
+      }
+      stack.pop();
+    }
+  }
+
+  return stack.length === 0;
+}
+
+// Examples
+console.log(isValidParentheses("()"));       // true
+console.log(isValidParentheses("()[]{}"));   // true
+console.log(isValidParentheses("(]"));       // false
+console.log(isValidParentheses("([)]"));     // false
+console.log(isValidParentheses("{[]}"));     // true
+

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --coverage --passWithNoTests",
     "test:watch": "jest --watch",
     "lint": "eslint . --ext .js --ignore-pattern node_modules"
   },
@@ -24,9 +24,8 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "testMatch": [
-      "**/*.test.js"
-    ],
+    "testMatch": 
+    ["**/tests/**/*.js"],
     "coverageDirectory": "coverage",
     "collectCoverageFrom": [
       "Array/**/*.js",
